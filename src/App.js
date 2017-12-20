@@ -11,9 +11,21 @@ class BooksApp extends React.Component {
   }
 
   componentDidMount(){
-    BooksAPI.getAll().then((books) => {
+    const test1 = BooksAPI.getAll();
+    //console.log(test1);
+    test1.then((books) => {
       this.setState({books})
     });
+    //console.log(this.state.books)
+  }
+
+  UpdateCategory = (book, shelf) => {
+    BooksAPI.update(book,shelf).then(() => {
+      BooksAPI.getAll().then(books => {
+        this.setState({books})
+      })
+    })
+    //console.log(test)
   }
 
   render() {
@@ -24,7 +36,7 @@ class BooksApp extends React.Component {
         }>
         </Route>
         <Route exact path='/' render={() => 
-          <BookList books={this.state.books}/>
+          <BookList books={this.state.books} onUpdatecategory={this.UpdateCategory}/>
         }>
         </Route>
       </div>
