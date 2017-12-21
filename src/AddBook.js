@@ -29,7 +29,7 @@ class AddBook extends Component{
             </div>
             <div className="search-books-results">
               <ol className="books-grid">
-                  {this.state.result && this.state.result.map(book => <Li bookTo={book} key={book.id}/>)}
+                  {this.state.result && this.state.result.map(book => <Li bookTo={book} key={book.id} onUpdateCategory={this.props.temp} books={this.props.temp2}/>)}
               </ol>
             </div>
           </div>			
