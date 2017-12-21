@@ -1,10 +1,11 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
+import Li from './Li'
 
 class BookList extends Component{
 	render(){
 		const {books} = this.props;
-		console.log(books)
+		//console.log(books)
 		let c_read = books.filter((book) => book.shelf === 'currentlyReading');
 		let w_read = books.filter((book) => book.shelf === 'wantToRead');
 		let read = books.filter((book) => book.shelf === 'read');
@@ -22,24 +23,7 @@ class BookList extends Component{
 	                  <div className="bookshelf-books">
 	                    <ol className="books-grid">
 	                    	{c_read.map((book) => (
-	                    		<li key={book.id}>
-			                        <div className="book">
-			                          <div className="book-top">
-			                            <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
-			                            <div className="book-shelf-changer">
-			                              <select onChange={(event) => this.props.onUpdatecategory(book, event.target.value)} value={book.shelf}>
-			                                <option value="none" disabled>Move to...</option>
-			                                <option value="currentlyReading">Currently Reading</option>
-			                                <option value="wantToRead">Want to Read</option>
-			                                <option value="read">Read</option>
-			                                <option value="none">None</option>
-			                              </select>
-			                            </div>
-			                          </div>
-			                          <div className="book-title">{book.title}</div>
-			                          {book.authors.map((author) => <div className="book-authors" key={author}>{author}</div>)}			                          
-			                        </div>	                    	
-	                    		</li>
+	                    		<Li bookTo={book} key={book.id} onUpdateCategory={this.props.temp}/>
 	                    	))}
 	                    </ol>
 	                  </div>
@@ -49,24 +33,7 @@ class BookList extends Component{
 	                  <div className="bookshelf-books">
 	                    <ol className="books-grid">
 	                    	{w_read.map((book) => (
-	                    		<li key={book.id}>
-			                        <div className="book">
-			                          <div className="book-top">
-			                            <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
-			                            <div className="book-shelf-changer">
-			                              <select onChange={(event) => this.props.onUpdatecategory(book, event.target.value)} value={book.shelf}>
-			                                <option value="none" disabled>Move to...</option>
-			                                <option value="currentlyReading">Currently Reading</option>
-			                                <option value="wantToRead">Want to Read</option>
-			                                <option value="read">Read</option>
-			                                <option value="none">None</option>
-			                              </select>
-			                            </div>
-			                          </div>
-			                          <div className="book-title">{book.title}</div>
-			                          {book.authors.map((author) => <div className="book-authors" key={author}>{author}</div>)}
-			                        </div>	                    	
-	                    		</li>
+	                    		<Li bookTo={book} key={book.id} onUpdateCategory={this.props.temp}/>
 	                    	))}	                    
 	                    </ol>
 	                  </div>
@@ -76,24 +43,7 @@ class BookList extends Component{
 	                  <div className="bookshelf-books">
 	                    <ol className="books-grid">
 	                    	{read.map((book) => (
-	                    		<li key={book.id}>
-			                        <div className="book">
-			                          <div className="book-top">
-			                            <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
-			                            <div className="book-shelf-changer">
-			                              <select onChange={(event) => this.props.onUpdatecategory(book, event.target.value)} value={book.shelf}>
-			                                <option value="none" disabled>Move to...</option>
-			                                <option value="currentlyReading">Currently Reading</option>
-			                                <option value="wantToRead">Want to Read</option>
-			                                <option value="read">Read</option>
-			                                <option value="none">None</option>
-			                              </select>
-			                            </div>
-			                          </div>
-			                          <div className="book-title">{book.title}</div>
-			                          {book.authors.map((author) => <div className="book-authors" key={author}>{author}</div>)}
-			                        </div>	                    	
-	                    		</li>
+	                    		<Li bookTo={book} key={book.id} onUpdateCategory={this.props.temp}/>
 	                    	))}
 	                    </ol>
 	                  </div>

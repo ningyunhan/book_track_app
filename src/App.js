@@ -28,6 +28,9 @@ class BooksApp extends React.Component {
     //console.log(test)
   }
 
+
+
+
   render() {
     return (
       <div className="app">
@@ -36,7 +39,7 @@ class BooksApp extends React.Component {
         }>
         </Route>
         <Route exact path='/' render={() => 
-          <BookList books={this.state.books} onUpdatecategory={this.UpdateCategory}/>
+          <BookList books={this.state.books} temp={this.UpdateCategory}/>
         }>
         </Route>
       </div>
