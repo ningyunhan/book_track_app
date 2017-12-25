@@ -34,7 +34,7 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
-        <Route exact path='/add' render={() => 
+        <Route exact path='/search' render={() => 
           <AddBook temp={this.UpdateCategory} temp2={this.state.books}/>
         }>
         </Route>
